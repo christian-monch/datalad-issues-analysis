@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 issue_dir = Path(sys.argv[1])
+output_file = Path(sys.argv[2])
 
 
 def flatten_json(json_object, context="") -> dict:
@@ -52,4 +53,4 @@ result = [
     for fo in flattened_objects
 ]
 
-json.dump(result, sys.stdout)
+json.dump(result, output_file.open("wt"))
